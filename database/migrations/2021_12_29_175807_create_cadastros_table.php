@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCadastrosTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('cadastros', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('descricao do produto');
+            $table->integer('codigo do produto');
+            $table->date('data de entrada');
+            $table->integer('valor');
+            $table->integer('quantidade do produto');           
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('cadastros');
+    }
+}
